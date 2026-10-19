@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------
+# I-NEXT homepage — keep private material out of the repository
+# ---------------------------------------------------------------
+
+# Original company photos (46 JPGs) — private, keep local only.
+# Matches only the top level of assets/images/, so the optimized
+# website images in assets/images/web/ are still included.
+assets/images/*.jpg
+assets/images/*.jpeg
+assets/images/*.JPG
+
+# Unused large source image (optimized copies live in web/)
+assets/images/service-internet.png
+
+# Staff photos and their preview copies — permission not confirmed
+assets/staff/
+
+# Internal documents (design reference PDF, etc.)
+docs/
+
+# Local scratch / temporary files
+scratchpad/
+tmp/
+temp/
+*.tmp
+*.bak
+*.log
+*.before-*
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Environment / secrets (none exist, guard for the future)
+.env
+.env.*
+
+# Vercel local config
+.vercel/
