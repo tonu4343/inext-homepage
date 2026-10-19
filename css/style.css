@@ -1006,8 +1006,8 @@ button { font: inherit; color: inherit; }
     gap: 40px;
   }
   /* stretch the logo panel to the table: top at the table top,
-     bottom above the draft note + button (12 + 18 + 32 + 56 ≈ 118px) */
-  .about-brand { align-self: stretch; margin-bottom: 118px; }
+     bottom above the button (32 + 56 = 88px) */
+  .about-brand { align-self: stretch; margin-bottom: 88px; }
   .about-brand-panel { height: 100%; }
 }
 @media (min-width: 600px) and (max-width: 1023px) {
