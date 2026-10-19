@@ -151,7 +151,7 @@ button { font: inherit; color: inherit; }
 }
 .logo--light { color: #fff; }
 
-/* header logo image: height-driven so the 190×50 proportions are kept */
+/* header logo image: height-driven so the 749×187 proportions are kept */
 .logo--image img {
   width: auto;
   height: 36px;
@@ -930,7 +930,7 @@ button { font: inherit; color: inherit; }
 .about-content .draft-note { margin-top: 12px; }
 .about-btn { align-self: flex-start; margin-top: 32px; }
 
-/* logo panel — the 190×50 PNG is never shown above natural size */
+/* logo panel — i NEXT logo (749×187 source) shown ~260px wide */
 .about-brand {
   position: relative;
   margin: 0;
@@ -963,7 +963,7 @@ button { font: inherit; color: inherit; }
 }
 .about-brand-panel img {
   position: relative;
-  width: 190px;
+  width: 260px;
   max-width: 100%;
   height: auto;
 }
