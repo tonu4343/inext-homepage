@@ -1430,6 +1430,14 @@ button { font: inherit; color: inherit; }
 
 .staff .container { position: relative; }
 
+/* longer introduction: readable measure, top-aligned beside the heading */
+.staff-intro p + p { margin-top: 0.9em; }
+.staff-intro p { text-wrap: pretty; word-break: auto-phrase; }
+@media (min-width: 1024px) {
+  .staff .section-head--split { align-items: flex-start; }
+  .staff .section-head--split .staff-intro { max-width: 600px; padding-top: 34px; padding-bottom: 0; }
+}
+
 .staff-gallery {
   display: grid;
   gap: 20px;
