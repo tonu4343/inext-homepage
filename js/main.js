@@ -65,4 +65,18 @@
       if (el) observer.observe(el);
     });
   }
+
+  /* ---------- Lazy images: fetch the rest once the page has loaded ----------
+     keeps the first paint light, but every photo is ready before the visitor
+     (or a full-page screenshot that does not scroll) reaches it */
+  window.addEventListener('load', function () {
+    var loadRest = function () {
+      document.querySelectorAll('img[loading="lazy"]').forEach(function (img) {
+        img.loading = 'eager';
+        img.decoding = 'auto'; // async decoding can leave off-screen photos unpainted in captures
+      });
+    };
+    if ('requestIdleCallback' in window) window.requestIdleCallback(loadRest, { timeout: 2000 });
+    else setTimeout(loadRest, 200);
+  });
 })();
