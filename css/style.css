@@ -1666,6 +1666,42 @@ button { font: inherit; color: inherit; }
 }
 .contact-card--tel .contact-card-sub { color: var(--text-muted); }
 .contact-card--pending .contact-card-sub { margin-top: 6px; color: rgba(255, 255, 255, 0.8); }
+/* email link on the dark band: same text style, opens the mail app */
+.contact-mail {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.45);
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.contact-mail:hover { color: #fff; text-decoration-color: #fff; }
+.contact-mail:focus-visible { color: #fff; outline: 2px solid #fff; outline-offset: 3px; border-radius: 2px; }
+
+/* ---------- Email links: one consistent style (会社概要 / 代表者 / お問い合わせ) ----------
+   blue, no underline; underline on hover and keyboard focus. Font size/weight stay per section. */
+.company-row a[href^="mailto:"],
+.rep-contact a[href^="mailto:"],
+.contact a[href^="mailto:"] {
+  color: var(--blue);
+  text-decoration: none;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.company-row a[href^="mailto:"]:hover,
+.company-row a[href^="mailto:"]:focus-visible,
+.rep-contact a[href^="mailto:"]:hover,
+.rep-contact a[href^="mailto:"]:focus-visible,
+.contact a[href^="mailto:"]:hover,
+.contact a[href^="mailto:"]:focus-visible {
+  color: var(--blue-700);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+/* on the dark お問い合わせ band, a lighter blue keeps the address readable */
+.contact a[href^="mailto:"] { color: #7fb0ff; }
+.contact a[href^="mailto:"]:hover,
+.contact a[href^="mailto:"]:focus-visible { color: #a9cbff; text-decoration-color: currentColor; }
 
 .contact-note {
   font-size: 12px;
