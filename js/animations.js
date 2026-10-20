@@ -152,6 +152,7 @@
     reveal('.svc-cta-inner .btn', { y: 14, stagger: 0.1 }, '.svc-cta');
     /* 会社概要 */
     reveal('.cinfo-table', { y: 24 });
+    reveal('.cbrand', { x: 32, y: 0, duration: 0.7 });                     // logo panel from the right
     revealBatch('.cbiz-card', 0.08);
     /* お問い合わせ */
     revealBatch('.cpage-card', 0.12);
@@ -170,17 +171,6 @@
       reveal(item.querySelector('.reason-photo'), { x: fromRight ? 40 : -40, y: 0, duration: 0.7 }, item);
       reveal(item.querySelectorAll('.reason-num, .reason-title, .reason-desc'), { y: 20, stagger: 0.1 }, item);
     });
-
-    /* ---------- SERVICE ---------- */
-    reveal('.service .section-head');
-    revealBatch('.service-card', 0.1);
-
-    /* ---------- COMPANY (#about) ----------
-       label/title targeted directly: .about-content is display:contents on mobile */
-    reveal('#about .section-label, #about .section-title', { stagger: 0.06 });
-    reveal('.company-table', { y: 28 });                                   // table as one block
-    reveal('#about .draft-note, .about-btn', { y: 16, stagger: 0.08 }, '.company-table');
-    reveal('.about-brand', { x: 32, y: 0, duration: 0.7 });                // logo panel from the right
 
     /* ---------- REPRESENTATIVE ---------- */
     reveal('.rep-visual', { x: -32, y: 0, duration: 0.7 });                // portrait from the left

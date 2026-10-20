@@ -48,7 +48,7 @@
     navMap[link.getAttribute('href').slice(1)] = link;
   });
   // HERO and CONTACT have no entry in the global nav
-  var sectionToNav = { hero: null, reason: 'reason', service: 'service', about: 'about', representative: 'about', contact: null };
+  var sectionToNav = { hero: null, reason: 'reason', contact: null };
 
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function (entries) {

@@ -602,10 +602,10 @@ button { font: inherit; color: inherit; }
 }
 @media (max-width: 599px) { .watermark { display: none; } }
 
-/* matching watermarks for SERVICE / COMPANY / REPRESENTATIVE / NETWORK — CSS only,
+/* matching watermarks for REPRESENTATIVE / NETWORK — CSS only,
    empty alt text keeps them out of the accessibility tree; drawn behind the content */
-.service, .about, .rep, .staff { isolation: isolate; }
-.service::after, .about::before, .rep::before, .staff::before {
+.rep, .staff { isolation: isolate; }
+.rep::before, .staff::before {
   position: absolute;
   z-index: -1;
   top: -14px;
@@ -621,12 +621,10 @@ button { font: inherit; color: inherit; }
   pointer-events: none;
   user-select: none;
 }
-.service::after { content: "SERVICE"; content: "SERVICE" / ""; color: #e7effd; } /* pale-blue section: one step deeper */
-.about::before { content: "COMPANY"; content: "COMPANY" / ""; color: #e7effd; }
 .rep::before { content: "REPRESENTATIVE"; content: "REPRESENTATIVE" / ""; }
 .staff::before { content: "NETWORK"; content: "NETWORK" / ""; }
 @media (max-width: 599px) {
-  .service::after, .about::before, .rep::before, .staff::before { display: none; }
+  .rep::before, .staff::before { display: none; }
 }
 
 .reason .container { position: relative; }
@@ -790,116 +788,8 @@ button { font: inherit; color: inherit; }
 }
 
 /* =========================================================
-   SERVICE
+   Company information table (.company-table) — shared by 会社概要
    ========================================================= */
-.service { background: var(--bg-soft); overflow: hidden; }
-.service::before { /* faint diagonal band */
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 6%;
-  width: 280px;
-  background: linear-gradient(90deg, rgba(0, 91, 254, 0), rgba(0, 91, 254, 0.04), rgba(0, 91, 254, 0));
-  transform: skewX(var(--skew));
-  pointer-events: none;
-}
-.service .container { position: relative; }
-
-.service-list {
-  display: grid;
-  gap: 20px;
-}
-@media (min-width: 600px) { .service-list { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
-@media (min-width: 1024px) { .service-list { grid-template-columns: repeat(4, 1fr); } }
-
-.service-card {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
-
-.service-media {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  background: var(--blue-50);
-}
-.service-media picture,
-.service-media img { width: 100%; height: 100%; }
-.service-media img {
-  object-fit: cover;
-  /* shared photo treatment: cool the warm indoor light slightly */
-  filter: saturate(0.88) brightness(1.04) contrast(1.02);
-  transition: transform 0.5s ease;
-}
-.service-card--oa .service-media img { object-position: 50% 60%; }
-.service-card--cabling .service-media img { object-position: 50% 32%; }
-.service-card--internet .service-media img { object-position: 45% 55%; }
-.service-card--provider .service-media img { object-position: 50% 20%; }
-.service-card:hover .service-media img { transform: scale(1.05); }
-
-/* subtle blue wash, shared by all four card images */
-.service-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 91, 254, 0.03) 0%, rgba(0, 52, 164, 0.1) 100%);
-  pointer-events: none;
-}
-
-.service-num {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  min-width: 64px;
-  padding: 6px 22px 6px 14px;
-  background: #fff;
-  font-family: var(--font-en);
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 1.35;
-  color: var(--blue);
-  clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
-}
-
-.service-body {
-  flex: 1;
-  padding: 22px 24px 28px;
-  border-top: 3px solid var(--blue);
-}
-.service-body h3 {
-  font-size: 17px;
-  font-weight: 900;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-}
-.service-body p {
-  margin-top: 10px;
-  font-size: 14px;
-  line-height: 1.85;
-  color: var(--text-muted);
-}
-
-/* =========================================================
-   ABOUT US（会社概要）— company table + logo panel
-   ≥600px: table left / logo panel right · <600px: stacked
-   ========================================================= */
-.about { overflow: hidden; background: var(--bg-soft); }
-
-.about-inner {
-  display: grid;
-  gap: 40px;
-}
-.about-content { display: flex; flex-direction: column; }
-.about-content .section-title { margin-bottom: 32px; }
-
 .company-table {
   margin: 0;
   border-top: 2px solid var(--blue);
@@ -951,73 +841,7 @@ button { font: inherit; color: inherit; }
   white-space: nowrap;
 }
 
-.about-content .draft-note { margin-top: 12px; }
-.about-btn { align-self: flex-start; margin-top: 32px; }
-
-/* logo panel — i NEXT logo (749×187 source) shown ~260px wide */
-.about-brand {
-  position: relative;
-  margin: 0;
-}
-.about-brand-accent {
-  position: absolute;
-  right: -20px;
-  bottom: -20px;
-  width: 70%;
-  height: 60%;
-  background: linear-gradient(135deg, var(--blue), var(--blue-700));
-  clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
-}
-.about-brand-panel {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  min-height: 200px;
-  padding: 40px 24px;
-  border-radius: var(--radius);
-  background: #eaf3ff url("../assets/images/web/company-background.jpg") 40% 55% / cover no-repeat;
-  background-image: image-set(url("../assets/images/web/company-background.webp") type("image/webp"), url("../assets/images/web/company-background.jpg") type("image/jpeg"));
-  box-shadow: 0 24px 48px rgba(10, 31, 92, 0.12);
-  overflow: hidden;
-}
-/* soft white glow behind the logo so it stays crisp on the photo */
-.about-brand-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 62% 58% at 50% 50%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 55%, rgba(255, 255, 255, 0.2) 100%);
-}
-.about-brand-panel img {
-  position: relative;
-  width: 260px;
-  max-width: 100%;
-  height: auto;
-}
-.about-brand-name {
-  position: relative;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: var(--navy);
-}
-
 @media (max-width: 599px) {
-  .about-inner { gap: 0; }
-  .about-content { display: contents; }
-  .about-content .section-label { order: 1; }
-  .about-content .section-title { order: 2; margin-bottom: 24px; }
-  .about-brand { order: 3; margin: 0 12px 40px 0; }
-  .company-table { order: 4; }
-  .about-content .draft-note { order: 5; }
-  .about-btn { order: 6; align-self: stretch; }
-  .about-brand-panel { min-height: 160px; padding: 28px 20px; }
-  .about-brand-accent { right: -12px; bottom: -12px; }
-
   .company-row { grid-template-columns: 1fr; }
   .company-row dt {
     padding: 14px 20px 6px;
@@ -1027,33 +851,11 @@ button { font: inherit; color: inherit; }
   }
   .company-row dd { padding: 0 20px 14px; }
 }
-
-@media (min-width: 600px) {
-  .about-inner {
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-    align-items: start;
-    gap: 40px;
-  }
-  /* stretch the logo panel to the table: top at the table top,
-     bottom above the button (32 + 56 = 88px) */
-  .about-brand { align-self: stretch; margin-bottom: 88px; }
-  .about-brand-panel { height: 100%; }
-}
 @media (min-width: 600px) and (max-width: 1023px) {
   .company-row { grid-template-columns: 124px minmax(0, 1fr); }
   .company-row dt,
   .company-row dd { padding: 14px 18px; font-size: 14px; }
   .company-row dt { white-space: nowrap; letter-spacing: 0.02em; }
-  .about-brand { margin-top: 109px; } /* level with the table top */
-  .about-brand-panel { min-height: 260px; }
-}
-@media (min-width: 1024px) {
-  .about-inner {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    gap: 72px;
-  }
-  .about-brand { margin-top: 120px; } /* level with the table top */
-  .about-brand-panel { min-height: 360px; }
 }
 
 /* =========================================================
@@ -2527,19 +2329,62 @@ button { font: inherit; color: inherit; }
 .cinfo { background: #fff; }
 .cinfo.section { padding-top: 40px; }
 @media (min-width: 1024px) { .cinfo.section { padding-top: 56px; } }
-.cinfo-table { max-width: 880px; margin: 40px auto 0; }
-.cinfo-list { margin: 0; padding: 0; list-style: none; }
-.cinfo-list li { position: relative; padding-left: 16px; }
-.cinfo-list li + li { margin-top: 4px; }
-.cinfo-list li::before {
+.cinfo { overflow: hidden; }
+
+/* table left / blue office photo with the i NEXT logo right (former homepage COMPANY layout);
+   <600px: logo panel above the table */
+.cinfo-grid { display: grid; gap: 32px; margin-top: 40px; }
+.cinfo-table { margin: 0; }
+.cbrand { position: relative; margin: 0 12px 12px 0; }
+.cbrand-accent {
+  position: absolute;
+  right: -12px;
+  bottom: -12px;
+  width: 70%;
+  height: 60%;
+  background: linear-gradient(135deg, var(--blue), var(--blue-700));
+  clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
+}
+.cbrand-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  height: 100%;
+  min-height: 180px;
+  padding: 32px 20px;
+  border-radius: var(--radius);
+  background: #eaf3ff url("../assets/images/web/company-background.jpg") 40% 55% / cover no-repeat;
+  background-image: image-set(url("../assets/images/web/company-background.webp") type("image/webp"), url("../assets/images/web/company-background.jpg") type("image/jpeg"));
+  box-shadow: 0 24px 48px rgba(10, 31, 92, 0.12);
+  overflow: hidden;
+}
+.cbrand-panel::before { /* soft white glow behind the logo so it stays crisp on the photo */
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.8em;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--blue);
+  inset: 0;
+  background: radial-gradient(ellipse 62% 58% at 50% 50%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 55%, rgba(255, 255, 255, 0.2) 100%);
+}
+.cbrand-panel img { position: relative; width: 260px; max-width: 100%; height: auto; }
+.cbrand-name {
+  position: relative;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--navy);
+}
+@media (max-width: 599px) { .cbrand { order: -1; } }
+@media (min-width: 600px) {
+  .cinfo-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); align-items: stretch; }
+  .cbrand { margin: 0 20px 20px 0; }
+  .cbrand-accent { right: -20px; bottom: -20px; }
+}
+@media (min-width: 1024px) {
+  .cinfo-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 56px; margin-top: 56px; }
 }
 
 /* representative (reuses the .rep card) */
