@@ -2736,22 +2736,9 @@ button { font: inherit; color: inherit; }
 .cpage-related a:hover .icon-arrow { transform: translateX(4px); }
 .cpage-related .icon-arrow { color: var(--blue); }
 
-/* 経営理念 banner: the photo already contains "PHILOSOPHY / 経営理念" and blue diagonals,
-   so the HTML title stays for screen readers only and no tint or CSS shapes are added */
-.page-banner--text-in-image .page-banner-clip::after,
-.page-banner--text-in-image .page-banner-shapes { display: none; }
-.page-banner--text-in-image .page-banner-media img { object-position: 50% 50%; }
-.page-banner--text-in-image .page-banner-title {
-  position: absolute;
-  inset: auto;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
+/* 経営理念 banner: the photo has its own blue diagonals, so the CSS shapes are not added */
+.page-banner--own-shapes .page-banner-shapes { display: none; }
+.page-banner--own-shapes .page-banner-media img { object-position: 50% 50%; }
 
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
