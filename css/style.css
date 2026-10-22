@@ -820,7 +820,6 @@ button { font: inherit; color: inherit; }
 
 .company-tel { color: inherit; }
 .company-tel:hover { color: var(--blue); }
-.company-mail { overflow-wrap: anywhere; } /* long address wraps inside narrow cells */
 
 .company-tags {
   display: flex;
@@ -1260,126 +1259,10 @@ button { font: inherit; color: inherit; }
   color: rgba(255, 255, 255, 0.88);
 }
 
-.contact-cards {
-  display: grid;
-  gap: 16px;
-}
+/* homepage CONTACT: button to the お問い合わせ page (reuses the CONTACT banner button style) */
+.contact-action { display: flex; }
+@media (min-width: 1024px) { .contact-action { justify-content: flex-end; } }
 
-.contact-card {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 22px 24px;
-  border-radius: var(--radius);
-}
-.contact-card--tel {
-  background: #fff;
-  color: var(--navy);
-  box-shadow: 0 16px 36px rgba(0, 10, 40, 0.3);
-}
-.contact-card--pending {
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.06);
-  color: #fff;
-}
-
-.contact-card-ico {
-  display: grid;
-  place-items: center;
-  flex: none;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-}
-.contact-card-ico svg {
-  width: 24px;
-  height: 24px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.contact-card--tel .contact-card-ico { background: var(--blue-50); color: var(--blue); }
-.contact-card--pending .contact-card-ico { background: rgba(255, 255, 255, 0.12); color: #cfe0ff; }
-
-.contact-card-body { min-width: 0; }
-.contact-card-title {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-.contact-tel {
-  display: inline-block;
-  min-height: 48px;
-  margin-top: 2px;
-  font-family: var(--font-en);
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 48px;
-  letter-spacing: 0.03em;
-  white-space: nowrap;
-  color: var(--blue);
-  text-decoration: none;
-}
-.contact-tel:hover { color: var(--blue-700); text-decoration: underline; text-underline-offset: 4px; }
-.contact-card-sub {
-  font-size: 13px;
-  line-height: 1.7;
-}
-.contact-card--tel .contact-card-sub { color: var(--text-muted); }
-.contact-card--pending .contact-card-sub { margin-top: 6px; color: rgba(255, 255, 255, 0.8); }
-/* email link on the dark band: same text style, opens the mail app */
-.contact-mail {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-color: rgba(255, 255, 255, 0.45);
-  text-underline-offset: 3px;
-  overflow-wrap: anywhere;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
-}
-.contact-mail:hover { color: #fff; text-decoration-color: #fff; }
-.contact-mail:focus-visible { color: #fff; outline: 2px solid #fff; outline-offset: 3px; border-radius: 2px; }
-
-/* ---------- Email links: one consistent style (会社概要 / お問い合わせ) ----------
-   blue, no underline; underline on hover and keyboard focus. Font size/weight stay per section. */
-.company-row a[href^="mailto:"],
-.contact a[href^="mailto:"] {
-  color: var(--blue);
-  text-decoration: none;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-}
-.company-row a[href^="mailto:"]:hover,
-.company-row a[href^="mailto:"]:focus-visible,
-.contact a[href^="mailto:"]:hover,
-.contact a[href^="mailto:"]:focus-visible {
-  color: var(--blue-700);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-}
-/* on the dark お問い合わせ band, a lighter blue keeps the address readable */
-.contact a[href^="mailto:"] { color: #7fb0ff; }
-.contact a[href^="mailto:"]:hover,
-.contact a[href^="mailto:"]:focus-visible { color: #a9cbff; text-decoration-color: currentColor; }
-
-.contact-note {
-  font-size: 12px;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.72);
-}
-
-@media (max-width: 374px) {
-  .contact-card { padding: 20px 18px; gap: 14px; }
-  .contact-tel { font-size: 21px; }
-}
-@media (min-width: 600px) and (max-width: 1023px) {
-  .contact-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .contact-card { align-items: flex-start; }
-  .contact-note { grid-column: 1 / -1; }
-  .contact-tel { font-size: 26px; }
-}
 @media (min-width: 768px) {
   .contact { padding: 88px 0; }
 }
@@ -1389,8 +1272,6 @@ button { font: inherit; color: inherit; }
     align-items: center;
     gap: 64px;
   }
-  .contact-card { padding: 24px 32px; }
-  .contact-tel { font-size: 30px; letter-spacing: 0.04em; }
 }
 
 /* =========================================================
@@ -1601,10 +1482,6 @@ button { font: inherit; color: inherit; }
   background: #fff;
 }
 .footer-logo img { width: auto; height: 30px; }
-.footer-tel { display: flex; align-items: center; gap: 10px; font-size: 13px; }
-.footer-tel-label { font-family: var(--font-en); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; color: #6fb1ff; }
-.footer-tel a { font-family: var(--font-en); font-size: 18px; font-weight: 700; letter-spacing: 0.04em; color: #fff; }
-.footer-tel a:hover { color: #9fd0ff; }
 .footer-pagetop {
   padding: 0 18px;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -2452,244 +2329,55 @@ button { font: inherit; color: inherit; }
 @media (min-width: 1024px) { .cpage.section { padding-top: 56px; } }
 .cpage-lead { margin-top: 20px; font-size: 15px; line-height: 2; color: var(--text-sub); }
 
-.cpage-cards {
-  display: grid;
-  gap: 20px;
-  max-width: 1000px;
-  margin: 40px auto 0;
-  padding: 0;
-  list-style: none;
-}
-@media (min-width: 768px) { .cpage-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; } }
-.cpage-card {
+/* お問い合わせフォーム card with the client's embedded Google Form */
+.gform { max-width: 1000px; margin: 40px auto 0; }
+.gform-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 36px 24px 32px;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: #fff;
-  box-shadow: var(--shadow-card);
-  text-align: center;
-}
-.cpage-card::before { /* blue diagonal accent, top-right corner */
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 120px;
-  height: 6px;
-  background: linear-gradient(90deg, var(--blue), var(--blue-700));
-  clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
-}
-.cpage-ico {
-  display: grid;
-  place-items: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--blue-50);
-  color: var(--blue);
-}
-.cpage-ico svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.cpage-num {
-  position: absolute;
-  top: 18px;
-  left: 22px;
-  font-family: var(--font-en);
-  font-size: 30px;
-  font-weight: 300;
-  line-height: 1;
-  color: rgba(0, 91, 254, 0.3);
-}
-.cpage-card-title { margin: 18px 0 0; font-size: 18px; font-weight: 900; letter-spacing: 0.04em; color: var(--navy); }
-.cpage-company { margin-top: 6px; font-size: 13px; color: var(--text-muted); }
-.cpage-value {
-  margin-top: 14px;
-  font-family: var(--font-en);
-  font-weight: 800;
-  color: var(--blue);
-  overflow-wrap: anywhere;
-  transition: color 0.2s ease;
-}
-.cpage-value:hover,
-.cpage-value:focus-visible { color: var(--blue-700); text-decoration: underline; text-underline-offset: 4px; }
-.cpage-tel { font-size: clamp(28px, 7vw, 36px); letter-spacing: 0.03em; white-space: nowrap; }
-.cpage-mail { font-size: clamp(16px, 4.2vw, 20px); letter-spacing: 0.01em; }
-.cpage-value { margin-bottom: 24px; }
-.cpage-btn { margin-top: auto; min-width: 240px; border-radius: 999px; } /* buttons align across cards */
-@media (max-width: 599px) { .cpage-btn { width: 100%; min-width: 0; } }
-
-/* contact form (design prototype — sending disabled) */
-.cform { max-width: 1000px; margin: 64px auto 0; }
-.cform-head { text-align: center; }
-.cform-title { margin-top: 12px; font-size: clamp(22px, 5vw, 28px); font-weight: 900; letter-spacing: 0.06em; color: var(--navy); }
-.cform-card {
-  position: relative;
-  margin-top: 28px;
-  padding: 32px 20px;
-  overflow: hidden;
+  padding: 32px 16px 32px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
   box-shadow: var(--shadow-card);
 }
-.cform-card::before { /* blue accent line along the top */
+.gform-card::before { /* blue accent line along the top */
   content: "";
   position: absolute;
   inset: 0 0 auto;
   height: 4px;
-  background: linear-gradient(90deg, var(--blue), var(--blue-700) 60%, transparent 60%, transparent 62%, var(--blue) 62%);
+  background: linear-gradient(90deg, var(--blue), var(--blue-700));
 }
-@media (min-width: 768px) { .cform-card { padding: 44px 48px; } }
-.cform-notice {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  padding: 14px 16px;
-  border-left: 4px solid var(--blue);
-  border-radius: 8px;
-  background: var(--blue-50);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.8;
-  color: var(--navy);
-}
-.cform-notice-ico { flex: none; width: 20px; height: 20px; margin-top: 3px; fill: none; stroke: var(--blue); stroke-width: 2; stroke-linecap: round; }
-.cform-grid { display: grid; gap: 22px; margin-top: 28px; }
-@media (min-width: 768px) {
-  .cform-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 28px; }
-  .cform-field--full { grid-column: 1 / -1; }
-}
-.cform-label { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; color: var(--navy); }
-.cform-badge {
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: var(--blue);
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1.6;
-  color: #fff;
-}
-.cform-badge--opt { background: var(--bg-soft); color: var(--text-muted); border: 1px solid var(--line); }
-.cform-input {
-  display: block;
-  width: 100%;
-  margin-top: 8px;
-  padding: 13px 16px;
-  border: 1px solid #c9d3e3;
+@media (min-width: 768px) { .gform-card { padding: 44px 48px; } }
+.gform-head { text-align: center; }
+.gform-en { font-family: var(--font-en); font-size: 12px; font-weight: 700; letter-spacing: 0.24em; color: var(--blue); }
+.gform-title { margin-top: 8px; font-size: clamp(20px, 4.4vw, 26px); font-weight: 900; letter-spacing: 0.06em; color: var(--navy); }
+/* Google Form iframe: centred with a comfortable reading width on desktop, full width on phones.
+   Google Forms iframes do not resize themselves, so the height is set to fit the client's form
+   (adjust --gform-h once the final form is published). */
+.gform-frame {
+  max-width: 760px;
+  margin: 28px auto 0;
+  border: 1px solid var(--line);
   border-radius: 10px;
-  background: #fff;
-  font: inherit;
-  font-size: 16px; /* 16px keeps iOS from zooming on focus */
-  color: var(--text);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: var(--bg-soft);
+  overflow: hidden;
 }
-.cform-input::placeholder { color: #9aa6b8; }
-.cform-input:hover { border-color: #9fb3d6; }
-.cform-input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0, 91, 254, 0.18); }
-.cform-select {
-  appearance: none;
-  padding-right: 44px;
-  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23005bfe' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 16px center / 16px;
-  cursor: pointer;
+.gform-frame iframe { display: block; width: 100%; height: var(--gform-h, 1200px); border: 0; }
+@media (max-width: 599px) {
+  .gform-frame { margin-left: -4px; margin-right: -4px; --gform-h: 1400px; }
 }
-.cform-textarea { min-height: 180px; resize: vertical; line-height: 1.8; }
-.cform-input.is-invalid { border-color: #d0312d; background-color: #fff8f8; }
-.cform-input.is-invalid:focus { box-shadow: 0 0 0 3px rgba(208, 49, 45, 0.16); }
-.cform-error { margin-top: 6px; font-size: 13px; font-weight: 700; color: #c62828; }
-.cform-error:empty { display: none; }
-.cform-actions { margin-top: 32px; text-align: center; }
-.cform-submit {
+.gform-fallback { margin-top: 20px; text-align: center; font-size: 14px; line-height: 1.8; }
+.gform-fallback a {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: 100%;
-  max-width: 320px;
-  min-height: 56px;
-  padding: 0 24px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--blue), var(--blue-700));
-  box-shadow: 0 8px 20px rgba(0, 91, 254, 0.28);
-  font: inherit;
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-  cursor: pointer;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-.cform-submit:hover { box-shadow: 0 12px 26px rgba(0, 91, 254, 0.36); transform: translateY(-1px); }
-.cform-submit:hover .icon-arrow { transform: translateX(4px); }
-.cform-submit:focus-visible { outline: 3px solid rgba(0, 91, 254, 0.4); outline-offset: 3px; }
-.cform-submit:disabled {
-  border: 1px dashed #b8c3d6;
-  background: #e9edf4;
-  box-shadow: none;
-  color: #6b778c;
-  cursor: not-allowed;
-  transform: none;
-}
-.cform-hint { margin-top: 12px; font-size: 13px; color: var(--text-muted); }
-.cform-submit:not(:disabled) + .cform-hint { display: none; }
-
-/* shown after the button: the visitor still has to press Send in their mail app */
-.cform-result {
-  margin-top: 28px;
-  padding: 24px 20px;
-  border: 1px solid var(--blue-100);
-  border-top: 4px solid var(--blue);
-  border-radius: 10px;
-  background: var(--blue-50);
-}
-.cform-result[hidden] { display: none; }
-.cform-result:focus { outline: none; }
-@media (min-width: 768px) { .cform-result { padding: 28px 32px; } }
-.cform-result-title { font-size: 17px; font-weight: 900; color: var(--navy); }
-.cform-result-text { margin-top: 8px; font-size: 14px; line-height: 1.9; color: var(--text-sub); }
-.cform-result-text strong { color: var(--navy); }
-.cform-copy-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 14px;
-  margin: 18px 0 16px;
-  padding: 12px 16px;
-  border-radius: 10px;
-  background: #fff;
-}
-.cform-copy-label { font-size: 13px; font-weight: 700; color: var(--navy); }
-.cform-copy-to { font-family: var(--font-en); font-weight: 700; color: var(--blue); overflow-wrap: anywhere; }
-.cform-summary { min-height: 200px; font-size: 14px; line-height: 1.8; resize: vertical; background: #fff; }
-.cform-copy {
-  min-height: 40px;
-  padding: 0 18px;
-  border: 1px solid var(--blue);
-  border-radius: 999px;
-  background: #fff;
-  font: inherit;
-  font-size: 13px;
+  gap: 8px;
+  min-height: 44px;
   font-weight: 700;
   color: var(--blue);
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
-.cform-copy-row .cform-copy { margin-left: auto; }
-.cform-summary + .cform-copy { margin-top: 12px; }
-.cform-copy:hover,
-.cform-copy:focus-visible { background: var(--blue); color: #fff; }
-.cform-copy-status { margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--blue-700); }
-.cform-copy-status:empty { display: none; }
-.cform-result-actions { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--blue-100); text-align: center; }
-.cform-cancel { min-width: 200px; border-radius: 999px; background: #fff; }
-@media (max-width: 599px) { .cform-cancel { width: 100%; } }
-@media (max-width: 599px) {
-  .cform-copy-row .cform-copy { width: 100%; margin-left: 0; }
-  .cform-summary + .cform-copy { width: 100%; }
-}
+.gform-fallback a:hover,
+.gform-fallback a:focus-visible { color: var(--blue-700); text-decoration: underline; text-underline-offset: 4px; }
+.gform-fallback-note { display: block; font-size: 12px; color: var(--text-muted); }
 
 /* company information strip */
 .cpage-company-strip {

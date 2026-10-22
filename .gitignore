@@ -40,3 +40,6 @@ desktop.ini
 
 # Vercel local config
 .vercel/
+
+# Local-only preview (Review #14/#15 Google Form) — never publish
+contact/preview-google-form.html

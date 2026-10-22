@@ -155,8 +155,7 @@
     reveal('.cbrand', { x: 32, y: 0, duration: 0.7 });                     // logo panel from the right
     revealBatch('.cbiz-card', 0.08);
     /* お問い合わせ */
-    revealBatch('.cpage-card', 0.12);
-    reveal('.cform-head, .cform-card', { y: 20, stagger: 0.1 }, '.cform');
+    reveal('.gform-card', { y: 20 });
     reveal('.cpage-company-strip, .cpage-related', { y: 16, stagger: 0.1 }, '.cpage-company-strip');
     reveal('.strength-head');
     revealBatch('.strength-card', 0.12);
@@ -185,7 +184,7 @@
 
     /* ---------- CONTACT ---------- */
     reveal('.contact-content');
-    reveal('.contact-card, .contact-note', { stagger: 0.12 }, '.contact-cards');
+    reveal('.contact-action', { y: 16 });
 
     /* ---------- CONTACT banner (sub-pages) ---------- */
     reveal('.cta-banner-text, .cta-banner-btn', { y: 20, stagger: 0.12 }, '.cta-banner');
