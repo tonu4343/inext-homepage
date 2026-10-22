@@ -966,7 +966,16 @@ button { font: inherit; color: inherit; }
   font-size: 15px;
   line-height: 1.8;
 }
-.rep-quals li + li { margin-top: 6px; }
+.rep-quals li + li { margin-top: 10px; }
+.rep-qual-name { display: block; }
+.rep-qual-no { /* qualification number under its name */
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+}
 .rep-quals li::before { /* small check badge */
   content: "";
   position: absolute;
