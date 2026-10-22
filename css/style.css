@@ -2357,15 +2357,12 @@ button { font: inherit; color: inherit; }
   background: linear-gradient(90deg, var(--blue), var(--blue-700));
 }
 @media (min-width: 768px) { .gform-card { padding: 44px 48px; } }
-.gform-head { text-align: center; }
-.gform-en { font-family: var(--font-en); font-size: 12px; font-weight: 700; letter-spacing: 0.24em; color: var(--blue); }
-.gform-title { margin-top: 8px; font-size: clamp(20px, 4.4vw, 26px); font-weight: 900; letter-spacing: 0.06em; color: var(--navy); }
 /* Google Form iframe: centred with a comfortable reading width on desktop, full width on phones.
    Google Forms iframes do not resize themselves, so the height is set to fit the client's form
    (adjust --gform-h once the final form is published). */
 .gform-frame {
   max-width: 760px;
-  margin: 28px auto 0;
+  margin: 0 auto; /* first item in the card: the card padding is the top spacing */
   border: 1px solid var(--line);
   border-radius: 10px;
   background: var(--bg-soft);
