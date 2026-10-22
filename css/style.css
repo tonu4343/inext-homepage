@@ -2375,18 +2375,6 @@ button { font: inherit; color: inherit; }
 @media (max-width: 599px) {
   .gform-frame { margin-left: -4px; margin-right: -4px; --gform-h: 1400px; }
 }
-.gform-fallback { margin-top: 20px; text-align: center; font-size: 14px; line-height: 1.8; }
-.gform-fallback a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  font-weight: 700;
-  color: var(--blue);
-}
-.gform-fallback a:hover,
-.gform-fallback a:focus-visible { color: var(--blue-700); text-decoration: underline; text-underline-offset: 4px; }
-.gform-fallback-note { display: block; font-size: 12px; color: var(--text-muted); }
 
 /* company information strip */
 .cpage-company-strip {
